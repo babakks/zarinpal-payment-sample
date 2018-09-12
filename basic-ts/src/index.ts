@@ -1,19 +1,16 @@
-import * as http from "http";
+import { IncomingMessage, ServerResponse, createServer } from "http";
 import * as url from "url";
 
 import { composePaymentInterface } from "./composition-root";
-import { PaymentSession } from "zarinpal-payment";
+import { PaymentSession } from "zarinpal-ts";
 
 const paymentManager = composePaymentInterface();
 
 let activePaymentSession: PaymentSession = undefined;
 
-http.createServer(handleRequest).listen(8080);
+createServer(handleRequest).listen(8080);
 
-async function handleRequest(
-  req: http.IncomingMessage,
-  res: http.ServerResponse
-) {
+async function handleRequest(req: IncomingMessage, res: ServerResponse) {
   const pathname = url.parse(req.url).pathname;
 
   if (pathname === "/register") {
@@ -23,10 +20,7 @@ async function handleRequest(
   }
 }
 
-async function startPayment(
-  req: http.IncomingMessage,
-  res: http.ServerResponse
-) {
+async function startPayment(req: IncomingMessage, res: ServerResponse) {
   activePaymentSession = paymentManager.create();
   activePaymentSession.payment.amount = 10000;
   activePaymentSession.payment.description = "Showcase payment.";
@@ -45,10 +39,7 @@ async function startPayment(
   res.end();
 }
 
-async function verifyPayment(
-  req: http.IncomingMessage,
-  res: http.ServerResponse
-) {
+async function verifyPayment(req: IncomingMessage, res: ServerResponse) {
   const verificationResult = await activePaymentSession.verify(req);
 
   res.setHeader("Content-Type", "application/json");
