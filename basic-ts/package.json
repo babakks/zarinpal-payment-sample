@@ -4,11 +4,18 @@
     "description": "Sample usage for Zarinpal payment package, in TypeScript.",
     "main": "./dist/index.js",
     "repository": {
-        "type": "",
-        "url": ""
+        "type": "git",
+        "url": "https://github.com/babakks/zarinpal-ts-sample/tree/master/basic-ts"
     },
     "author": "",
     "license": "MIT",
+    "keywords": [
+        "javascript",
+        "typescript",
+        "zarinpal",
+        "payment",
+        "sample"
+    ],
     "scripts": {
         "copyAssets": "cpx \"src/**/*.{json,pem,htm,html,def}\" \"dist\"",
         "copyAll": "npm run copyAssets",
@@ -59,7 +66,7 @@
         "request": "^2.83.0",
         "request-promise": "^4.2.2",
         "winston": "^2.4.0",
-        "zarinpal-ts": "^1.0.5"
+        "zarinpal-ts": "^1.0.6"
     },
     "devDependencies": {
         "@types/async": "^2.0.45",

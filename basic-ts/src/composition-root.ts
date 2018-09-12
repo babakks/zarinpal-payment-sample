@@ -5,7 +5,7 @@ import {
   ZarinpalServiceConfig,
   DefaultHttpServiceInvoker,
   PaymentManager
-} from "zarinpal-payment";
+} from "zarinpal-ts";
 
 export function composePaymentInterface(): PaymentManager {
   const zarinpalConfig = new ZarinpalServiceConfig(
@@ -15,7 +15,7 @@ export function composePaymentInterface(): PaymentManager {
   const invoker = new DefaultHttpServiceInvoker();
 
   /**
-   * The line below initializes a sandbox payment gateway. To use the actual
+   * The line below initializes a sandboxed payment gateway. To use the actual
    * gateway replace "SandboxZarinpalPaymentSessionFactory" with
    * "DefaultZarinpalPaymentSessionFactory".
    */
