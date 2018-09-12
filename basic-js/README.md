@@ -1,11 +1,11 @@
-# `basic-ts`
+# `basic-js`
 
-This is a basic sample project, in TypeScript, that uses the `zarinpal-ts`
+This is a basic sample project, in JavaScript, that uses the `zarinpal-ts`
 package. Due to simplicity, no server-side session management is used. Rather
 only one payment session is tracked at any time (`activePaymentSession`).
 
 The server starts up with composing the payment module, by calling the
-`composePaymentInterface` method defined in `composition-root.ts`. The returned
+`composePaymentInterface` method defined in `composition-root.js`. The returned
 `PaymentManager` object then stored in the server scope.
 
 The server is set up to watch for `/register` and `/callback` routes. For the
@@ -17,23 +17,11 @@ the user.
 
 # Running
 
-To build the project, open a command prompt in the project's root directory
+To run the project, open a command prompt in the project's root directory
 (where `package.json` resides), and execute the following command:
 
 ```
-npm run build
-```
-
-Then, to run it:
-
-```
 npm run serve
-```
-
-To both build and run, simply use this command:
-
-```
-npm run build-serve
 ```
 
 If you're using VS Code, you can run the commands above by pressing

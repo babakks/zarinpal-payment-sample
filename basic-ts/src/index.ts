@@ -5,7 +5,6 @@ import { composePaymentInterface } from "./composition-root";
 import { PaymentSession } from "zarinpal-ts";
 
 const paymentManager = composePaymentInterface();
-
 let activePaymentSession: PaymentSession = undefined;
 
 createServer(handleRequest).listen(8080);
